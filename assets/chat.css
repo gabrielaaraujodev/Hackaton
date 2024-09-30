@@ -1,0 +1,115 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9f5e9; /* Fundo suave verde claro */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#chat-box {
+    max-height: 450px;
+    overflow-y: auto;
+    border: 2px solid #b2e0b2; /* Verde suave */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #f9fff9; /* Fundo do chat */
+}
+
+#messages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#messages-list li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    position: relative;
+    word-wrap: break-word;
+    max-width: 80%; /* Limita a largura das mensagens */
+}
+
+#messages-list li.sender {
+    background-color: #4CAF50; /* Verde para o remetente */
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+}
+
+#messages-list li.receiver {
+    background-color: #d1f7c4; /* Verde claro para o destinatário */
+    color: black;
+    align-self: flex-start;
+}
+
+#message-form {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #c4e1c4; /* Verde suave */
+    border-radius: 20px; /* Bordas arredondadas */
+    margin-right: 10px;
+    font-size: 16px;
+    background-color: #f0fff0; /* Fundo suave */
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #4CAF50; /* Verde para o botão */
+    color: white;
+    border-radius: 20px; /* Bordas arredondadas */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+    transform: translateY(-2px);
+}
+
+#cabecalhoChat {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cabecalhoChat button {
+    height: 3rem;   
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    #message-input {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

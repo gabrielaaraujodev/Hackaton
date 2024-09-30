@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Voluntário</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="perfil.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <a class="navbar-brand" href="#" id="tipoUsuario">Voluntário</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/perfil-voluntario.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cards.html">Matching</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-comments" id="comments-icon" style="cursor: pointer;"></i>
+                </li>
+            </ul>
+        </div>
+    </nav>   
+
+    <div class="container">
+        <div class="profile-header">
+            <img src="" alt="Foto de Perfil" class="profile-img" id="profileImage">
+            <h1 id="profileName">Nome do Voluntário</h1>
+            <div id="bioTextContainer">
+                <p id="bioText">Informações sobre o Voluntário.</p>
+                <span id="editBioButton" title="Editar Bio">&#9998;</span>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="postagens-tab" data-toggle="tab" href="#postagens" role="tab"
+                    aria-controls="postagens" aria-selected="true">Postagens</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="editar-perfil-tab" data-toggle="tab" href="#editar-perfil" role="tab"
+                    aria-controls="editar-perfil" aria-selected="false">Editar Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="minhas-ONGs-tab" data-toggle="tab" href="#minhas-ONGs" role="tab"
+                    aria-controls="minhas-ONGs" aria-selected="false">ONGs</a>
+            </li>       
+            <li class="nav-item">
+                <a class="nav-link" id="notificacoes-tab" data-toggle="tab" href="#notificacoes" role="tab"
+                   aria-controls="notificacoes" aria-selected="false">Notificações de Mensagem <span id="messageCount" class="badge badge-light">0</span></a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="postagens" role="tabpanel" aria-labelledby="postagens-tab">
+                <h2>Postagens</h2>
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="postContent">Nova Postagem</label>
+                        <textarea class="form-control" id="postContent" rows="3" maxlength="300"
+                            placeholder="Escreva algo... (máx. 300 caracteres)"></textarea>
+                        <small id="charCount">0/300</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Postar</button>
+                </form>
+                <div id="postsList"></div>
+            </div>
+
+            <div class="tab-pane fade" id="editar-perfil" role="tabpanel" aria-labelledby="editar-perfil-tab">
+                <h2>Editar Perfil</h2>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="editProfileName">Nome</label>
+                        <input type="text" class="form-control" id="editProfileName" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfileBio">Bio</label>
+                        <textarea class="form-control" id="editProfileBio" rows="3"
+                            placeholder="Informações (máx. 150 caracteres)" maxlength="150"></textarea>
+                        <small id="bioCharCount">0/150</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editProfileImage">Carregar Foto de Perfil</label>
+                        <input type="file" class="form-control-file" id="editProfileImage">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="minhas-ONGs" role="tabpanel" aria-labelledby="minhas-ONGs-tab">
+                <h2 id="vol"></h2>
+            </div>
+
+
+            <div class="tab-pane fade" id="notificacoes" role="tabpanel" aria-labelledby="notificacoes-tab">
+                <h2>Notificações de Mensagem</h2>
+                <div id="notificationsList"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ONG. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="perfil.js"></script>
+
+</body>
+
+</html>

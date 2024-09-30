@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="match.css" />
+    <link rel="icon" href="" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <title>Tinder Simulado</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <i class="fas fa-comments" id="comments-icon" style="cursor: pointer;"></i>
+        <i class="fas fa-user" id="profile-icon"></i>
+    </nav>
+
+    <div class="photo-and-actions">
+        <div class="photo" id="foto">
+            <div class="photo-text">
+                <div class="photo-name-and-age">
+                    <h2 id="tipo"></h2>
+                    <h2 id="nomePerfil"></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="action" id="dislike-button">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="action" id="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Biografia -->
+    <div class="bio-section">
+        <h2>Biografia</h2>
+        <p id="biografia"></p>
+        <p>Junte-se a nós nessa missão!</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 NOME FICTICIO. Todos os direitos reservados.</p>
+    </footer>
+
+
+    <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
+
+    <script src="match.js"></script>
+</body>
+</html>

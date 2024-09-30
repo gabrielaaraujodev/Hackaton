@@ -1,0 +1,68 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(0, 100, 100, 0.8), rgba(0, 255, 255, 0.6)); 
+    font-family: "Roboto", sans-serif;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 20px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center; 
+    backdrop-filter: blur(10px); 
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #00575b; 
+    margin-bottom: 1.5rem;
+}
+
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    transition: border-color 0.3s; 
+}
+
+.form-control:focus {
+    border-color: #00b3b3; 
+    outline: none; 
+}
+
+.btn {
+    background-color: #00575b; 
+    border: none; 
+    border-radius: 10px; 
+    padding: 12px 0;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.btn:hover {
+    background-color: #007b7a; 
+    transform: translateY(-2px); 
+}
+
+.form-check-label {
+    color: #00575b; 
+}
+
+.error-message {
+    color: red; 
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+#registroBtn {
+    margin-top:  1rem;
+}

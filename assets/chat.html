@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css"> <!-- Adicione seu CSS aqui -->
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="cabecalhoChat">
+            <h1>Chat</h1>
+            <button onclick="backHome()">Home</button>
+        </div>
+        <div id="chat-box">
+            <ul id="messages-list"></ul>
+        </div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

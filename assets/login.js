@@ -9,11 +9,12 @@ async function validarLogin(){
     let email = document.getElementById('floatingInput').value;
     let senha = document.getElementById('floatingPassword').value;
 
-    let senhaHash = await gerarHashSenha(senha);
+    // let senhaHash = await gerarHashSenha(senha);
+    let senhaHash = senha;
 
     
     // Envia uma requisição POST para o backend para validar o login
-    const response = await fetch("https://sql10.freemysqlhosting.net/api/Login", {
+    const response = await fetch("https://localhost:7166/Login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -26,7 +27,7 @@ async function validarLogin(){
 
     if (response.ok) {
         const data = await response.json();
-        if (data.message === "Login bem-sucedido") {
+        if (data) {
             alert("Login realizado com sucesso!");
 
             window.location.href = 'perfil.html';

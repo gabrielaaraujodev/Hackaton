@@ -1,8 +1,8 @@
-const user = JSON.parse(localStorage.getItem('usuarioLogado'));
+// const user = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-if(!user) {
-    window.location.href = 'login.html';
-}
+// if(!user) {
+//     window.location.href = 'login.html';
+// }
 
 $(document).ready(function () {
     loadPostsFromLocalStorage();

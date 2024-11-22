@@ -21,30 +21,24 @@ document
     event.preventDefault();
 
     let userType = document.getElementById("userType").value;
-    let email, password;
-
-    if (userType === "ong") {
-      email = document.getElementById("emailONG").value;
-      password = document.getElementById("passwordONG").value;
-    } else if (userType === "voluntario") {
-      email = document.getElementById("emailVoluntario").value;
-      password = document.getElementById("passwordVoluntario").value;
-    } 
+    let email = userType === "ong" ? document.getElementById("emailONG").value : document.getElementById("emailVoluntario").value;
+    let password = userType === "ong" ? document.getElementById("passwordONG").value : document.getElementById("passwordVoluntario").value;
 
     if (password.length < 8) {
       alert("A senha deve ter no mínimo 8 caracteres.");
       return;
     }
 
-    let users = JSON.parse(localStorage.getItem("db")) || { login: [] };
+    const emailExists = await verificarEmailExistente(email);
 
-    if (users.login.some((user) => user.email === email)) {
+    if (emailExists) {
       alert("Este email já está cadastrado.");
       return;
     }
 
     let senhaHash = await gerarHashSenha(password);
-    let newUser = { email, password: senhaHash, userType};
+
+    let newUser = { email, password: senhaHash, userType };
 
     if (userType === "ong") {
       newUser.nomeONG = document.getElementById("nomeONG").value;
@@ -55,13 +49,27 @@ document
       newUser.cpf = document.getElementById("cpfVoluntario").value;
       newUser.registroConselho = document.getElementById("registroConselho").value;
       newUser.areaAtuacao = document.getElementById("areaAtuacao").value;
-    } 
+    }
 
-    users.login.push(newUser);
-    localStorage.setItem("db", JSON.stringify(users));
+    try {
+      const response = await fetch("https://sql10.freemysqlhosting.net/api/Registrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      });
 
-    alert("Cadastro realizado com sucesso!");
-    window.location.href = "login.html";
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        window.location.href = "login.html";
+      } else {
+        const errorData = await response.json();
+        alert(`Erro no cadastro: ${errorData.error || 'Erro desconhecido'}`);
+      }
+    } catch (error) {
+      alert("Erro ao conectar com o servidor.");
+    }
   });
 
 async function gerarHashSenha(senha) {
@@ -71,4 +79,13 @@ async function gerarHashSenha(senha) {
   return Array.from(new Uint8Array(hash))
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
+}
+
+async function verificarEmailExistente(email) {
+  const response = await fetch(`https://sql10.freemysqlhosting.net/api/check-email?email=${email}`);
+  if (response.ok) {
+    const result = await response.json();
+    return result.exists;
+  }
+  return false;
 }

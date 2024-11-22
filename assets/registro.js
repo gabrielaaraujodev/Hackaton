@@ -29,7 +29,7 @@ document
       return;
     }
 
-    const emailExists = await verificarEmailExistente(email);
+    const emailExists = await verificarEmailExistente(email, userType);
 
     if (emailExists) {
       alert("Este email já está cadastrado.");
@@ -52,7 +52,7 @@ document
     }
 
     try {
-      const response = await fetch("https://sql10.freemysqlhosting.net/api/Registrar", {
+      const response = await fetch("https://localhost:7166/Registrar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,8 +81,14 @@ async function gerarHashSenha(senha) {
     .join("");
 }
 
-async function verificarEmailExistente(email) {
-  const response = await fetch(`https://sql10.freemysqlhosting.net/api/check-email?email=${email}`);
+async function verificarEmailExistente(email, userType) {
+  const response = await fetch(`https://localhost:7166/VerificarEmailJaExiste`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({'email': email, 'usertype': userType}),
+  });
   if (response.ok) {
     const result = await response.json();
     return result.exists;
